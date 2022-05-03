@@ -1,5 +1,3 @@
-# Source: https://www.analyticsvidhya.com/blog/2021/08/python-tutorial-working-with-csv-file-for-data-science/
-
 import csv
 import shutil
 import os
