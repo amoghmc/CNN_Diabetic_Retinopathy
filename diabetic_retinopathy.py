@@ -122,8 +122,20 @@ model = tf.keras.models.Model(base_model.input, x)
 
 model.compile(optimizer = RMSprop(learning_rate=0.0001), loss = 'binary_crossentropy', metrics = ['acc'])
 
-inc_history = model.fit(train_generator, validation_data = test_generator, steps_per_epoch = 20, epochs = 10)
-model.summary()
+hist = model.fit(train_generator, validation_data = test_generator, steps_per_epoch = 20, epochs = 50)
+#model.summary()
 
+plt.figure(figsize=(18, 4))
+plt.plot(hist.history['loss'], label = 'train')
+plt.plot(hist.history['val_loss'], label = 'valid')
+plt.legend()
+plt.title('Loss Function')
+plt.show()
 
+plt.figure(figsize=(18, 4))
+plt.plot(hist.history['acc'], label = 'train')
+plt.plot(hist.history['val_acc'], label = 'valid')
+plt.legend()
+plt.title('Accuracy')
+plt.show()
 
